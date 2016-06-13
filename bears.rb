@@ -1,12 +1,12 @@
 class Bear
   attr_reader(:name, :type)
-  attr_accessor(:tummy, :river)
+  attr_accessor(:tummy)
 
   def initialize(bear_name, bear_species)
     @name = bear_name
     @type = bear_species
     @tummy = []
-    @river = river
+    
 
   end
 
