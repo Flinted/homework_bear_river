@@ -14,8 +14,6 @@ class Bear
 
   def bear_take_fish(river)
     fish = river.bear_take_fish
-    if fish != nil
-      @tummy << fish
-    end
+      @tummy << fish if fish != nil
   end
 end
