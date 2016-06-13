@@ -5,9 +5,7 @@ class Bear
   def initialize(bear_name, bear_species)
     @name = bear_name
     @type = bear_species
-    @tummy = []
-    
-
+    @tummy = [] 
   end
 
   def roar()
