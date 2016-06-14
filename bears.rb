@@ -1,11 +1,14 @@
 class Bear
   attr_reader(:name, :type)
-  attr_accessor(:tummy)
 
   def initialize(bear_name, bear_species)
     @name = bear_name
     @type = bear_species
     @tummy = [] 
+  end
+
+  def bear_tummy
+    @tummy.size
   end
 
   def roar()
@@ -17,3 +20,6 @@ class Bear
       @tummy << fish if fish != nil
   end
 end
+
+
+ 

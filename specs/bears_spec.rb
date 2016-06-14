@@ -1,4 +1,6 @@
 require 'minitest/autorun'
+require 'minitest/rg'
+
 require_relative '../bears'
 require_relative '../fish'
 require_relative '../river'
@@ -18,8 +20,11 @@ class TestBears < MiniTest::Test
     @river = River.new(fish_in_river)
   end
 
-  def test_bear_creation
+  def test_bear_type
     assert_equal("Grizzly", @bear_1.type)
+  end
+
+  def test_bear_name
     assert_equal("Balloo", @bear_2.name)
   end
 
@@ -28,12 +33,18 @@ class TestBears < MiniTest::Test
   end
 
   def test_bear_tummy_empty
-    assert_equal(0, @bear_1.tummy.size)
+    assert_equal(0, @bear_1.bear_tummy)
   end
 
   def test_bear_take_fish
     @bear_1.bear_take_fish(@river)
-    assert_equal(1, @bear_1.tummy.size)
+    assert_equal(1, @bear_1.bear_tummy)
     assert_equal(2, @river.number_of_fish)
+  end
+
+  def test_bear_cannot_take_fish
+    river = River.new([])
+    @bear_1.bear_take_fish(river)
+    assert_equal(0, @bear_1.bear_tummy)
   end
 end
